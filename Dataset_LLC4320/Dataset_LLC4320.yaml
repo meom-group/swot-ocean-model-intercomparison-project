@@ -2,7 +2,7 @@
 LLC4320: # MODEL NAMES
       ##  Information on the provider institution
       data_provider:
-        institution_name: "MIT/GFDL"
+        institution_name: "MIT/JPL"
         contact_email: ""  ###### The data we have comes from simulations run by others. 
       ## Information about the model simulation 
       model_information:
