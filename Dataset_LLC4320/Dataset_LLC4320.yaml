@@ -61,7 +61,7 @@ LLC4320: # MODEL NAMES
         horizontal_momentum_dissipation: "Leith+ momentum dissipation of Fox-Kemper and Menemenlis (2008), with viscC4Leith=2.15, viscC4Leithd=2.15, viscA4GridMax=0.8, and useAreaViscLength=.TRUE."  # background value, the unit informs on the type of dissipation
         horizontal_tracer_dissipation: ""   # background value, the unit informs on the type of dissipation
         vertical_mixing_parameterization: "Nonlocal K-Profile Parameterization (KPP) scheme of Large et al. (1994)"
-        equation_state: "JMD95Z, a modified UNESCO formula by Jackett and McDougall (1995), which uses the model variable potential temperature as input. The ’Z’ indicates that this equation of state uses a horizontally and temporally constant pressure p_0 = -g*rho_0*g" 
+        equation_state: "JMD95Z, a modified UNESCO formula by Jackett and McDougall (1995), which uses the model variable potential temperature as input. The ’Z’ indicates that this equation of state uses a horizontally and temporally constant pressure p_0 = -g*rho_0*z." 
         bottom_drag: "Quadratic drag"
         bottom_drag_coeff: "2.1e-3"
 Footer
