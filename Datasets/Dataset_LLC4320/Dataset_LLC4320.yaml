@@ -1,9 +1,13 @@
 ## THIS IS AN METADATA TEMPLATE (Please fill the X)
 LLC4320: # MODEL NAMES
+      ##### The details of the LLC4320 simulation(s) are here: https://github.com/MITgcm-contrib/llc_hires/tree/master/llc_4320
+      ##### The readme files pertaining to the classic LLC4320 simulation are: https://github.com/MITgcm-contrib/llc_hires/blob/master/llc_4320/readme.txt
+      ##### https://github.com/MITgcm-contrib/llc_hires/blob/master/llc_4320/readme_llc4320.txt
+      ##### and the relevant data file is: https://github.com/MITgcm-contrib/llc_hires/blob/master/llc_4320/input/data
       ##  Information on the provider institution
       data_provider:
-        institution_name: "MIT/GFDL"
-        contact_email: ""  ###### The data we have comes from simulations run by others. 
+        institution_name: "Moss Landing Marine Laboratories, San José State University"
+        contact_email: "dimitris.menemenlis@sjsu.edu" 
       ## Information about the model simulation 
       model_information:
         simulation_name: "LLC4320 Global Ocean Simulation"
@@ -16,14 +20,13 @@ LLC4320: # MODEL NAMES
         ##### IMPORTANT NOTE: 
         ##### The model data spans from 2011-09-13 00:00 to 2012-09-12 23:59.  
         ##### Data from Sept 13 to Dec 31 is attributed to Year 2011; data from Jan 1 to Sept 12 is attributed to Year 2012.
-        ##### If it is required to split this 1-year model simulation into two calendar years, please email Yidongfang Si at y_si@mit.edu or ysi@g.ucla.edu
-        model_year: "" # Remember, just one year for metadata and dataset. If you wish to contribute more than one year, please complete this file for each year.
-        base_s3_folder: "s3://llc4320-swot-data" # Access S3 point
-        endpoint_url: "https://llc4320-swot-data.s3.us-east-1.amazonaws.com"
+        model_year: "2011-09-13 to 2012-09-12" # Remember, just one year for metadata and dataset. If you wish to contribute more than one year, please complete this file for each year.
+        base_s3_folder: "s3://project-meom-ige/LLC4320" # Access S3 point
+        endpoint_url: "https://minio.lab.dive.edito.eu"
       ## Model grid 
       model_grid:
         global: "True" # Boolean: True or False
-        grid_points: "13 x 4320 x 4320"  # string “Face x Nx x Ny”
+        grid_points: "13 x 4320 x 4320"  # “Face x Nx x Ny”
         minimum_horizontal_gridsize: "0.75" ## in km
         maximum_horizontal_gridsize: "2.3" ## in km
         number_of_vertical_levels: "90"
@@ -31,7 +34,7 @@ LLC4320: # MODEL NAMES
         maximum_vertical_gridsize: "500" ## in m           
         arakawa_grid_type: "C" # if relevant
         vertical_coordinate: "Z" ## “sigma” or “pressure” or “isopycnal” or “hybrid”
-        bathymetry : "ETOPO1" ## Reference of the dataset used for defining model bathymetry
+        bathymetry : "Smith&Sandwell v14.1 and IBCAO v2.23" ## Reference of the dataset used for defining model bathymetry
         nested_model : "False"  # Boolean## Detail on the model experiment
       ## Detail on the model experiment    
       model_experiment:
@@ -41,28 +44,28 @@ LLC4320: # MODEL NAMES
         ##### llc2160 started January 14, 2011 from llc1080 simulation
         ##### llc4320 started September 10, 2011 from llc2160 simulation
         date_initialization: "2011-09-10" # in order to know how far we are from spin-up
-        atmospheric_forcing_dataset : "ECMWF operational analysis (0.14°)" # ”None” or reference of the forcing dataset
-        atmospheric_forcing_frequency : "6" # Frequency of forcing dataset
+        atmospheric_forcing_dataset : "0.14° ERA-Interim atmosphere reanalysis ( https://www.ecmwf.int/en/forecasts/datasets/reanalysis-datasets/era-interim )" # ”None” or reference of the forcing dataset
+        atmospheric_forcing_frequency : "every 1h for atmospheric pressure; every 6h for surface (2m) specific humidity, surface (2-m) air temperature, surface (10-m) zonal wind velocity, surface (10-m) meridional wind velocity, precipitation, downward shortwave radiation, and downward longwave radiation; monthly-mean forcing for river and glacier runoff" # Frequency of forcing dataset
         atmospheric_model : "None" # None or name of the atm. model codebase
         atmopheric_pressure_forcing: "True" # Boolean
         wave_model : "None" # None or name fo the wave model codebase
         sea_ice_model : "MITgcm Sea Ice Model (Losch et al., 2010)" # None or name of the sea ice model codebase        
         lateral_boundary_condition : "None" # None or reference of the forcing dataset
         lateral_boundary_condition_frequency : "None" # None or frequency of forcing dataset
-        river_runoff_dataset:  "Global Runoff Data Centre (GRDC)" # None or reference to the database
+        river_runoff_dataset:  "runoff1p2472-360x180x12.bin. A Regional Arctic Ocean and Sea Ice Model with JRA-55 forcing, 2010-2015. doi:10.18739/A2W08WH74" # None or reference to the database
         tidal_constituents: "16 most significant tidal components" # “None” or list of constituents        
       ## Detail on model schemes and parameters   
       model_parameters:
-        bulk_formulae: "Large and Yeager (2004)" # reference to the version of the bulk formulae
-        wind_stress_formulation: "surface‐relative wind drag"  #
-        horizontal_momentum_advection_scheme: "Flux-limited monotonicity-preserving (seventh order) advection scheme" 
-        horizontal_tracer_advection_scheme: "Flux-limited monotonicity-preserving (seventh order) advection scheme" 
-        vertical_momentum_advection_scheme: ""  ###### Unsure 
-        vertical_tracer_advection_scheme: ""    ###### Unsure 
-        horizontal_momentum_dissipation: ""  ###### Unsure # background value, the unit informs on the type of dissipation
-        horizontal_tracer_dissipation: "0"   # background value, the unit informs on the type of dissipation
-        vertical_mixing_parameterization: "KPP (Large et al., 1994)"
-        equation_state: "Jackett and McDougall (1995)"  
+        bulk_formulae: "Drag formulation of Large and Yeager (2009), Climate Dyn., 33, pp 341-364" # reference to the version of the bulk formulae
+        wind_stress_formulation: ""  
+        horizontal_momentum_advection_scheme: "Crank-Nicolson barotropic time stepping and a 7th order advection scheme with monotonicity preserving limiter" 
+        horizontal_tracer_advection_scheme: "Crank-Nicolson barotropic time stepping and a 7th order advection scheme with monotonicity preserving limiter" 
+        vertical_momentum_advection_scheme: "Crank-Nicolson barotropic time stepping and a 7th order advection scheme with monotonicity preserving limiter" 
+        vertical_tracer_advection_scheme: "Crank-Nicolson barotropic time stepping and a 7th order advection scheme with monotonicity preserving limiter"
+        horizontal_momentum_dissipation: "Leith+ momentum dissipation of Fox-Kemper and Menemenlis (2008), with viscC4Leith=2.15, viscC4Leithd=2.15, viscA4GridMax=0.8, and useAreaViscLength=.TRUE."  # background value, the unit informs on the type of dissipation
+        horizontal_tracer_dissipation: ""   # background value, the unit informs on the type of dissipation
+        vertical_mixing_parameterization: "Nonlocal K-Profile Parameterization (KPP) scheme of Large et al. (1994)"
+        equation_state: "JMD95Z, a modified UNESCO formula by Jackett and McDougall (1995), which uses the model variable potential temperature as input. The ’Z’ indicates that this equation of state uses a horizontally and temporally constant pressure p_0 = -g*rho_0*z." 
         bottom_drag: "Quadratic drag"
         bottom_drag_coeff: "2.1e-3"
 Footer
