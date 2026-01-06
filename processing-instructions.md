@@ -10,8 +10,10 @@ Here, we explain how to prepare your dataset for this project.
     
 
 2. Interpolate your simulation outputs onto SWOT grid, using [Synthocean](https://github.com/Amine-ouhechou/synthocean).
-
    - When interpolating the SWOT grid, if the year 2024 is not available, assume that the selected year corresponds to 2024 (using the dates closest to SWOT)
+> [!IMPORTANT]  
+> When using synthocean, please select the **scipy** option for interpolation.
+>  
 
 3. Please organize the files into separate folders for each cycle. Each folder should be named using cycle_XXX format, where XXX represents the three-digit cycle number (e.g., cycle_008, cycle_012).
 > [!NOTE]  
