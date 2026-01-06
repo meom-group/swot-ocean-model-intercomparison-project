@@ -6,8 +6,10 @@ Here, we explain how to prepare your dataset for this project.
 
     - If your simulation includes the year 2024, please include it.
     -  Otherwise, it would be best to select a neutral year (i.e. a year without extreme events).
-    - **IMPORTANT: If you contribute with more than 1 year, please prepared one dataset for each year**
-    
+  
+> [!IMPORTANT]  
+> If you contribute with more than 1 year, please prepared one dataset for each year
+>
 
 2. Interpolate your simulation outputs onto SWOT grid, using [Synthocean](https://github.com/Amine-ouhechou/synthocean).
    - When interpolating the SWOT grid, if the year 2024 is not available, assume that the selected year corresponds to 2024 (using the dates closest to SWOT)
