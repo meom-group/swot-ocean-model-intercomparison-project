@@ -46,7 +46,7 @@ NOC_eORCA12_ERA5v1: # MODEL NAMES
       ## Detail on model schemes and parameters   
       model_parameters:
         bulk_formulae: "ECMWF"  # reference to the version of the bulk formulae
-        wind_stress_formulation: "None"
+        wind_stress_formulation: "surface current feedback to the wind stress (Renault et al. 2020)"
         horizontal_momentum_advection_scheme: "FCT 4th order"
         horizontal_tracer_advection_scheme: "TVD"
         vertical_momentum_advection_scheme: "FCT 4th order"
